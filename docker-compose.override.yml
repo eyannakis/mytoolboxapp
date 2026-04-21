@@ -1,0 +1,16 @@
+services:
+  app:
+    networks:
+      - traefik
+      - default
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.mytoolboxapp.rule=Host(`mytoolboxapp.lan.logiko.net`)"
+      - "traefik.http.routers.mytoolboxapp.entrypoints=websecure"
+      - "traefik.http.routers.mytoolboxapp.tls=true"
+      - "traefik.http.services.mytoolboxapp.loadbalancer.server.port=3000"
+    ports: []
+
+networks:
+  traefik:
+    external: true
