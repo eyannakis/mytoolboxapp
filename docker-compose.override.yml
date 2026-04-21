@@ -1,7 +1,7 @@
 services:
   app:
     networks:
-      - traefik
+      - proxy
       - default
     labels:
       - "traefik.enable=true"
@@ -12,5 +12,5 @@ services:
     ports: []
 
 networks:
-  traefik:
+  proxy:
     external: true
